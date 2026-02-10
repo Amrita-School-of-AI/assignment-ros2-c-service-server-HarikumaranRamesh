@@ -1,27 +1,22 @@
-cmake_minimum_required(VERSION 3.8)
-project(ros2_service_server)
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ros2_service_server</name>
+  <version>0.0.0</version>
+  <description>Assignment: ROS2 Service Server</description>
+  <maintainer email="student@university.edu">Student Name</maintainer>
+  <license>Apache-2.0</license>
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(example_interfaces REQUIRED)
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-add_executable(add_two_ints_server src/add_two_ints_server.cpp)
-ament_target_dependencies(add_two_ints_server
-  rclcpp
-  example_interfaces
-)
-install(TARGETS
-  add_two_ints_server
-  DESTINATION lib/${PROJECT_NAME}
-)
+  
+  <depend>rclcpp</depend>
+  <depend>example_interfaces</depend>
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  set(ament_cmake_copyright_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
-ament_package()
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
